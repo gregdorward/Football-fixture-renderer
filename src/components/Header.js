@@ -3,7 +3,7 @@ import React from "react";
 function Header() {
   return (
     <div>
-      <h1>Predictor</h1>
+      <h1>Fixtures and scores</h1>
     </div>
   );
 }

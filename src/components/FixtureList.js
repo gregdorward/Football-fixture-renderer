@@ -1,10 +1,8 @@
-import React, { Fragment } from "react";
-import { CreateBadge } from "./createBadge";
+import React from "react";
 import Collapsable from "../components/CollapsableElement";
 
 function GetDivider(props) {
   const matchStatus = props.fixture.status;
-  const isPrediction = props.result;
 
   if (matchStatus !== "complete") {
     return <div className="divider">{"V"}</div>;
@@ -15,22 +13,11 @@ function GetDivider(props) {
   }
 }
 
-let fixtureClassName;
-
-function getStyle(fixture) {
-  if (fixture.btts_potential >= 40) {
-    fixtureClassName = "highlight";
-  } else {
-    fixtureClassName = "individualFixture"
-  }
-  return fixtureClassName;
-}
-
 export function FixtureList(props) {
   return (
     <ul id="fixtures" className="container">
       <div className="fixture">
-        <Collapsable />
+        <Collapsable buttonText={"Help"} text={"Fixtures showing points per game picked up so far this season for each team"}/>
         {props.fixtures.map((fixture) => (
           <div
             onMouseEnter={(event) =>
@@ -39,8 +26,8 @@ export function FixtureList(props) {
             onMouseLeave={(event) => (event.target.style.color = "")}
           >
             <li
-              id={props.highlight}
-              className={getStyle(fixture)}
+              id="individualFixture"
+              className="individualFixture"
               key={fixture.id}
             >
               <div
@@ -67,17 +54,6 @@ export function FixtureList(props) {
               >
                 {fixture.awayPpg}
               </div>
-              <CreateBadge
-                image={fixture.homeTeamInfo.badge}
-                ClassName="HomeBadge"
-                alt="Home team badge"
-                flexShrink={5}
-              />
-              <CreateBadge
-                image={fixture.awayTeamInfo.badge}
-                ClassName="AwayBadge"
-                alt="Away team badge"
-              />
             </li>
             <div>
             </div>
