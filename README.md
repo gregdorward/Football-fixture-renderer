@@ -14,6 +14,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+See images in the wiki for how the responsive site should look when running correctly
+
 ### `npm run deploy`
 
 Deploys via GitHub Actions
